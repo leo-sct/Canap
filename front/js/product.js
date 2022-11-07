@@ -47,7 +47,18 @@ btnSend.addEventListener("click", (event) => {
         color: document.getElementById("colors").value,
     };
     if (productStorage) {
-        $ * $$$;
+        for (i = 0; i < productStorage.length; i++) {
+            if (productStorage[i]._ID == cart._ID && productStorage[i].color == cart.color) {
+                return (
+                    (productStorage[i].qty += Number(document.getElementById("quantity").value)),
+                    localStorage.setItem("product", JSON.stringify(productStorage)),
+                    console.log(productStorage)
+                );
+            }
+        }
+        productStorage.push(cart);
+        localStorage.setItem("product", JSON.stringify(productStorage));
+        console.log(productStorage);
     } else {
         productStorage = [];
         productStorage.push(cart);
